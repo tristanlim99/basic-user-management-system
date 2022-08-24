@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Docs List</title>
+    <link rel="stylesheet" href="../css/docs-list.css" />
+    <link rel="stylesheet" href="../css/partials.css/tab.css" />
+    <link rel="stylesheet" href="../css/partials.css/docs-list-edit.css" />
+    <script src="../js/docs-list.js" defer></script>
+  </head>
+
+  <body>
+    <!-- tabs -->
+    <div class="tab">
+      <button class="btn">
+        <a href="./chat">Group Chat</a>
+      </button>
+      <button class="btn">
+        <a href="./user-list">Manage Users</a>
+      </button>
+      <button class="btn">
+        <a href="./docs-list">Manage Documents</a>
+      </button>
+      <button id="logout-btn" class="btn">
+        <a href="./logout.html">Logout</a>
+      </button>
+    </div>
+    <!-- tabs end -->
+
+    <h2>My Uploads</h2>
+
+    <!--my uploads table  -->
+    <div class="table">
+      <table id="table">
+        <!-- table header -->
+        <tr>
+          <th>Label</th>
+          <th>File Name</th>
+          <th>Action</th>
+        </tr>
+        <!-- table header end -->
+        <% upload.forEach((item) => { %>
+        <tr>
+          <td><%= item.label %></td>
+          <td><%= item.filename %></td>
+          <td>
+            <button class="edit" id="edit">
+              <a href="#edit-modal">Edit</a>
+            </button>
+            |
+            <button class="delete" id="del">
+              <a href="#del-modal-overlay">Delete</a>
+            </button>
+            |
+            <button class="share">
+              <a href="./share/<%= item._id %> ">Share</a>
+            </button>
+          </td>
+        </tr>
+        <% }) %>
+      </table>
+    </div>
+    <!-- my uploads table end -->
+
+    <h2>Share Uploads</h2>
+
+    <!-- shared uploads table  -->
+    <div class="table">
+      <table id="share-table">
+        <!-- table header -->
+        <tr>
+          <th>Label</th>
+          <th>File Name</th>
+          <th>Shared by</th>
+        </tr>
+        <!-- table header -->
+
+        <!-- row1 -->
+        <tr>
+          <td>
+            <button id="add-upload-btn" class="add-upload">
+              <a href="#modal-overlay">+ Add Upload</a>
+            </button>
+          </td>
+          <td></td>
+          <td></td>
+        </tr>
+        <!-- row 5 end -->
+      </table>
+    </div>
+    <!-- shared uploads table end -->
+
+    <!-- edit modal -->
+    <form action="/file-edit/<%= urlId %>?_method=put" method="post">
+      <div id="hide-div-edit" style="display: block" class="hide-div-edit">
+        <div class="edit-modal" id="edit-modal">
+          <div class="modal-header">
+            <p>Edit</p>
+            <div id="edit-x-btn" class="close-btn">
+              <a href="/docs-list">X</a>
+            </div>
+          </div>
+          <div class="modal-content">
+            <label for="sample-file">File Description</label>
+            <input
+              type="text"
+              id="edit-file"
+              class="sample-file"
+              name="label"
+              placeholder="Please Enter File Description"
+            />
+            <input type="hidden" name="filename" value="file.docx" />
+          </div>
+          <div id="edit-upload-btn" class="upload-btn">
+            <button type="submit" id="upload-edit">Upload Now</button>
+            <button type="button" id="edit-cancel-btn">
+              <a href="/docs-list">Cancel</a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <!-- edit modal end-->
+  </body>
+</html>

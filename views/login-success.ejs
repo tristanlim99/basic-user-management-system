@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Success</title>
+    <link rel="stylesheet" href="../css/login-success.css" />
+    <link rel="stylesheet" href="../css/partials.css/tab.css" />
+  </head>
+
+  <body>
+    <!-- tabs -->
+    <div class="tab">
+      <button class="btn">
+        <a href="/chat">Group Chat</a>
+      </button>
+      <button class="btn">
+        <a href="/user-list">Manage Users</a>
+      </button>
+      <button class="btn">
+        <a href="/docs-list">Manage Documents</a>
+      </button>
+      <form class="btn" action="/login/logout" method="get">
+        <button type="submit" id="logout-btn" class="btn-a">Logout</button>
+      </form>
+    </div>
+    <!-- tabs end -->
+
+    <!-- login success container -->
+    <div class="container">
+      <h1 class="login-msg">Login Successful</h1>
+      <p class="welcome">Welcome, <%=findUser.email %>!</p>
+    </div>
+  </body>
+</html>

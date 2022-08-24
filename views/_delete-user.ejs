@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User List</title>
+    <link rel="stylesheet" href="../css/user-list.css" />
+    <link rel="stylesheet" href="../css/partials.css/tab.css" />
+  </head>
+
+  <body>
+    <!-- tabs -->
+    <div class="tab">
+      <button class="btn">
+        <a href="./chat">Group Chat</a>
+      </button>
+      <button class="btn">
+        <a href="./user-list">Manage Users</a>
+      </button>
+      <button class="btn">
+        <a href="./docs-list">Manage Documents</a>
+      </button>
+      <button id="logout-btn" class="btn">
+        <a href="./logout.html">Logout</a>
+      </button>
+    </div>
+    <!-- tabs end -->
+
+    <h2 class="users">Users</h2>
+
+    <!-- Table -->
+    <div id="tableDiv" class="table">
+      <form action="./user-list" method="get">
+        <table id="table">
+          <tr>
+            <th>Name</th>
+            <th>User Email ID</th>
+            <th></th>
+          </tr>
+          <% users.forEach((item) => { %>
+          <tr>
+            <td><%= item.name %></td>
+            <td><%= item.email %></td>
+            <td>
+              <button id="edit" type="submit" class="edit">
+                <a href="/edit-user/<%= item._id %> ">Edit</a>
+              </button>
+              <button id="delete" class="delete">
+                <a href="/delete-user/<%= item._id %> ">Delete</a>
+              </button>
+            </td>
+          </tr>
+          <% }) %>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+      </form>
+    </div>
+    <!-- table end -->
+    <!-- modal -->
+
+    <div id="hide-div" style="display: block" class="hide-div">
+      <div id="del-modal-overlay" class="del-modal-overlay">
+        <div class="del-modal-container">
+          <div class="del-modal-header">
+            <p>Confirm User Deletion</p>
+            <button id="x-btn" class="close-btn">
+              <a href="/user-list">X</a>
+            </button>
+          </div>
+          <div class="del-modal-confirmation">
+            <img
+              class="question-mark"
+              src="../img/qMark.png"
+              alt="question-mark"
+            />
+            <p>Are you sure?</p>
+          </div>
+          <div class="del-modal-btns">
+            <form
+              id="form"
+              action="/delete-user/<%= urlId %>?_method=delete"
+              method="post"
+            >
+              <button type="submit" id="del-btn">ok</button>
+              <button id="cancel-btn">
+                <a href="/user-list">Cancel</a>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- modal end -->
+  </body>
+</html>

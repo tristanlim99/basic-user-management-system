@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  letter-spacing: 0.2vmin;
+}
+.welcome {
+  margin: 6vmin;
+  margin-top: 15vmin;
+  text-align: center;
+}
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 3vmin;
+}
+.container div {
+  margin: 1vmin;
+}
+.container h4 {
+  text-align: center;
+  margin: 3vmin;
+}
+.btn {
+  padding: 1vmin;
+  border-radius: 1.5vmin;
+  border: 1px solid;
+  width: 16vmin;
+  cursor: pointer;
+  margin: 2vmin;
+  width: 10em;
+}
+.btn:hover {
+  background-color: #808080;
+  color: white;
+}

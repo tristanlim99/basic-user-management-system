@@ -1,0 +1,89 @@
+/* delete modal styles */
+/* .hide-div {
+display: hidden;
+} */
+.del-modal-overlay {
+  position: fixed;
+  display: flex;
+  height: 30vmin;
+  width: 42vmin;
+  border: 2px solid black;
+  border-radius: 6px;
+  background-color: white;
+  bottom: 18em;
+  left: 35em;
+}
+/* 
+.del-modal-overlay:not(:target) {
+  visibility: hidden;
+
+} */
+.delete a {
+  text-decoration: none;
+  color: black;
+}
+.del-modal-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  width: 100%;
+}
+.del-modal-header {
+  display: inline-flex;
+  border-bottom: 1.5px solid;
+  border-top: none;
+}
+.del-modal-header p {
+  width: 100%;
+  margin-top: 1.5vmin;
+  font-size: small;
+}
+.del-close-btn {
+  width: 7vmin;
+  height: 5vmin;
+  font-size: x-large;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border-color: black;
+  margin: 0.2vmin;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.del-close-btn a {
+  text-decoration: none;
+  color: black;
+}
+.del-close-btn:hover {
+  border-color: blue;
+}
+.del-modal-confirmation {
+  display: inline-flex;
+  margin-left: 8vmin;
+  align-items: center;
+  margin-top: 3vmin;
+}
+.del-question-mark {
+  width: 6vmin;
+  margin: 1vmin;
+  background-color: white;
+}
+.del-modal-btns {
+  margin: 2.5vmin;
+}
+.del-modal-btns a {
+  text-decoration: none;
+  color: black;
+}
+.del-modal-btns button {
+  width: 15vmin;
+  border-radius: 6px;
+  border-color: black;
+  color: black;
+  cursor: pointer;
+  height: 3.8vmin;
+}
+.del-modal-btns button:hover {
+  border-color: blue;
+  background-color: #dddddd;
+}
+/* delete modal styles end */

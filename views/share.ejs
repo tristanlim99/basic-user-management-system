@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Share</title>
+    <link rel="stylesheet" href="../css/share.css" />
+    <link rel="stylesheet" href="../css/partials.css/tab.css" />
+  </head>
+
+  <body>
+    <!-- tabs -->
+    <div class="tab">
+      <button class="btn">
+        <a href="/chat">Group Chat</a>
+      </button>
+      <button class="btn">
+        <a href="/user-list">Manage Users</a>
+      </button>
+      <button class="btn">
+        <a href="/docs-list">Manage Documents</a>
+      </button>
+      <form class="btn" action="/login/logout" method="get">
+        <button type="submit" id="logout-btn" class="btn-a">Logout</button>
+      </form>
+    </div>
+    <!-- tabs end -->
+
+    <!-- header -->
+    <header class="header">
+      <h2>Upload Sharing</h2>
+      <p id="file-name-header">:</p>
+    </header>
+    <!-- header end-->
+
+    <!-- table -->
+    <div class="table">
+      <table id="table">
+        <!-- table header -->
+        <tr>
+          <th>Shared User</th>
+          <th>Action</th>
+        </tr>
+        <!-- table header end-->
+
+        <% shareUpload.forEach(item => { %>
+        <tr>
+          <td><%= item.shareTo %></td>
+          <td><a href="/share-remove/<%= item._id %> ">Remove</a></td>
+        </tr>
+        <% }) %>
+
+        <!-- row -->
+        <tr>
+          <td></td>
+          <td></td>
+        </tr>
+        <!-- row end-->
+
+        <!-- row -->
+        <tr>
+          <td></td>
+          <td></td>
+        </tr>
+        <!-- row end-->
+
+        <!-- row -->
+        <tr>
+          <td></td>
+          <td></td>
+        </tr>
+        <!-- row end-->
+      </table>
+    </div>
+    <!-- table end-->
+
+    <!-- Add sharing -->
+
+    <h2 class="h2">Add Sharing</h2>
+    <div class="add-share">
+      <form action="/share/share/<%= urlId %> " method="post">
+        <!-- dropdown code -->
+        <label for="custom-select">Choose User:</label>
+        <select name="shareTo">
+          <% users.forEach(item => { %>
+          <option id="<%= item._id %> " value=" <%=item.name %>">
+            <%=item.name %>
+          </option>
+          <% }) %>
+        </select>
+        <% uploads.forEach(item => { %>
+        <input type="hidden" name="label" value="<%= item.label %> " />
+        <input type="hidden" name="filename" value="<%= item.filename %> " />
+        <% }) %>
+        <input type="hidden" name="sharedBy" value="<%= userName %> " />
+        <button type="submit" id="add-share-btn" class="add-share-btn">
+          Add Share
+        </button>
+      </form>
+    </div>
+  </body>
+</html>

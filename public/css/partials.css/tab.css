@@ -1,0 +1,30 @@
+/* tabs styles */
+.tab {
+  width: 100%;
+  display: flex;
+  margin-left: 1px;
+}
+.btn {
+  background-color: #989898;
+  cursor: pointer;
+  padding: 3vmin;
+  width: 25%;
+  font-size: medium;
+  outline: none;
+  border: 1px solid;
+  border-radius: 2px;
+}
+.btn button{
+    background-color: transparent;
+      font-size: large;
+      margin-left: 6em;
+      border: 0px;
+}
+.btn:hover {
+  background-color: white;
+}
+.btn a {
+  text-decoration: none;
+  color: black;
+}
+/* tab styles end */

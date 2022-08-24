@@ -1,0 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  letter-spacing: 0.2vmin;
+}
+.container {
+  text-align: center;
+}
+.login-msg {
+  margin: 9vmin;
+}

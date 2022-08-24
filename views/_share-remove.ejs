@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Share</title>
+    <link rel="stylesheet" href="../css/share.css" />
+    <link rel="stylesheet" href="../css/partials.css/tab.css" />
+    <link rel="stylesheet" href="../css/partials.css/delete-modal.css" />
+  </head>
+
+  <body>
+    <!-- tabs -->
+    <div class="tab">
+      <button class="btn">
+        <a href="./chat">Group Chat</a>
+      </button>
+      <button class="btn">
+        <a href="./user-list">Manage Users</a>
+      </button>
+      <button class="btn">
+        <a href="./docs-list">Manage Documents</a>
+      </button>
+      <button id="logout-btn" class="btn">
+        <a href="./logout">Logout</a>
+      </button>
+    </div>
+    <!-- tabs end -->
+
+    <!-- header -->
+    <header class="header">
+      <h2>Upload Sharing</h2>
+      <p id="file-name-header">: Sample.txt</p>
+    </header>
+    <!-- header end-->
+
+    <!-- table -->
+    <div class="table">
+      <table id="table">
+        <!-- table header -->
+        <tr>
+          <th>Shared User</th>
+          <th>Action</th>
+        </tr>
+        <!-- table header end-->
+        <% shareUpload.forEach(item => { %>
+        <tr>
+          <td><%= item.shareTo %></td>
+          <td><a href="#">Remove</a></td>
+        </tr>
+        <% }) %>
+
+        <!-- row3 -->
+        <tr>
+          <td></td>
+          <td></td>
+        </tr>
+        <!-- row3 end-->
+
+        <!-- row4 -->
+        <tr>
+          <td></td>
+          <td></td>
+        </tr>
+        <!-- row4 end-->
+
+        <!-- row5 -->
+        <tr>
+          <td></td>
+          <td></td>
+        </tr>
+        <!-- row5 end-->
+      </table>
+    </div>
+    <!-- table end-->
+
+    <!-- Add sharing -->
+
+    <h2 class="h2">Add Sharing</h2>
+    <div class="add-share">
+      <form action="/share/share" method="post">
+        <!-- dropdown code -->
+        <label for="custom-select">Choose User:</label>
+        <select name="shareTo">
+          <% users.forEach(item => { %>
+          <option id="<%= item._id %> " value=" <%=item.name %>">
+            <%=item.name %>
+          </option>
+          <% }) %>
+        </select>
+        <input type="hidden" name="label" value="label" />
+        <input type="hidden" name="filename" value="filename" />
+        <input type="hidden" name="sharedBy" value="sharedBy" />
+        <button type="submit" id="add-share-btn" class="add-share-btn">
+          Add Share
+        </button>
+      </form>
+    </div>
+
+    <!-- delete modal -->
+    <form action="/share-remove/<%= urlId %>?_method=delete" method="post">
+      <div id="hide-div" class="hide-div">
+        <div class="del-modal-overlay" id="del-modal-overlay">
+          <div class="del-modal-container">
+            <div class="del-modal-header">
+              <p>Confirm From Web Page</p>
+              <button id="x-btn" type="button" class="del-close-btn">
+                <a href="/share">X</a>
+              </button>
+            </div>
+            <div class="del-modal-confirmation">
+              <img
+                class="del-question-mark"
+                src="../img/qMark.png"
+                alt="question-mark"
+              />
+              <p>Are you sure?</p>
+            </div>
+            <div class="del-modal-btns">
+              <button id="del-btn">ok</button>
+              <button type="button" id="cancel-btn">
+                <a href="/share">Cancel</a>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <!-- delete modal end -->
+  </body>
+</html>

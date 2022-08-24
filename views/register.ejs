@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register Page</title>
+    <link rel="stylesheet" href="../css/register.css" />
+  </head>
+
+  <body>
+    <h2 class="register">Register</h2>
+    <% if(message) {%>
+    <p class="message"><strong><%= message %></strong></p>
+    <% } %>
+    <form id="form" action="./register" method="post">
+      <div class="container">
+        <!-- full name -->
+        <div>
+          <label class="label" for="name">Full Name</label>
+          <input id="name" name="name" placeholder="Tristan Yves Lim" />
+        </div>
+        <!-- email -->
+        <div>
+          <label class="label" for="email">Email</label>
+          <input
+            type="text"
+            name="email"
+            id="email"
+            placeholder="tristan@gmail.com"
+          />
+        </div>
+        <!-- password -->
+        <div>
+          <label class="label" for="password">Password</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"
+          />
+        </div>
+        <!-- confirm password -->
+        <div>
+          <label class="label" for="confirm-password">Confirm Password</label>
+          <input
+            type="password"
+            name="confirmPassword"
+            id="confirm-password"
+            placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"
+          />
+        </div>
+      </div>
+      <div class="register-btn">
+        <button id="register-btn" type="submit">Register</button>
+      </div>
+    </form>
+  </body>
+</html>

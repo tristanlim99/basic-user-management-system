@@ -1,0 +1,109 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  letter-spacing: 0.2vmin;
+}
+/* .hide-div {
+  display: hidden;
+}
+.del-modal-overlay{
+  visibility: hidden;
+} */
+/* tabs section */
+.tab button:nth-child(3) {
+  background-color: white;
+}
+/* tabs section end */
+
+/* table */
+.table table {
+  font-family: arial, sans-serif;
+  width: 100%;
+  margin-top: 3vmin;
+  border: 1.5px solid black;
+  border-radius: 6px;
+  margin-left: 1px;
+  border-spacing: 0;
+}
+.table td:last-child {
+  text-align: center;
+}
+.table tr,
+th,
+td {
+  border: 0.5px solid black;
+  padding: 8px;
+  font-size: small;
+  font-weight: normal;
+  height: 2.5vmin;
+  border-right: 1.5px solid black;
+  width: 50%;
+}
+.table th {
+  background-color: #a8a8a8;
+  border-bottom: none;
+}
+.table td {
+  border: none;
+  border-right: 1.5px solid black;
+}
+.table tr:nth-child(odd) {
+  background-color: #dddddd;
+}
+.table button {
+  border-style: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.table button:hover {
+  font-weight: bold;
+}
+/* table end */
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-top: 3vmin;
+  margin-left: 1vmin;
+}
+.h2 {
+  margin-top: 3vmin;
+  margin-left: 1vmin;
+}
+
+/* dropdown css code */
+.add-share {
+  border: 1.5px solid black;
+  padding: 6vmin;
+  margin-top: 3vmin;
+  border-radius: 6px;
+}
+.add-share select {
+  width: 30rem;
+  padding: 0.5vmin;
+  border-radius: 6px;
+}
+.add-share-btn {
+  padding: 1vmin;
+  border-radius: 6px;
+  border: 2px solid;
+  margin: 1vmin;
+  background-color: #a8a8a8;
+  cursor: pointer;
+  width: 8rem;
+  margin-left: 3rem;
+}
+.add-share-btn:hover {
+  background-color: white;
+  border-color: blue;
+}
+/* dropdown css code end */
+
+.remove a {
+  text-decoration: none;
+  color: black;
+}
+.custom-select {
+  border: 1.5px solid black;
+}

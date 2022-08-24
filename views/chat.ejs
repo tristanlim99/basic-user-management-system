@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat Page</title>
+    <link rel="stylesheet" href="../css/chat.css" />
+    <link rel="stylesheet" href="../css/partials.css/tab.css" />
+    <!-- <script src="/socket.io/socket.io.js" defer></script>
+    <script src="../js/client.js" defer></script> -->
+  </head>
+
+  <body>
+    <!-- tabs -->
+    <div class="tab">
+      <button class="btn">
+        <a href="/chat">Group Chat</a>
+      </button>
+      <button class="btn">
+        <a href="/user-list">Manage Users</a>
+      </button>
+      <button class="btn">
+        <a href="/docs-list">Manage Documents</a>
+      </button>
+      <form class="btn" action="/login/logout" method="get">
+        <button type="submit" id="logout-btn" class="btn-a">Logout</button>
+      </form>
+    </div>
+    <!-- tabs end -->
+
+    <!-- chat header -->
+    <div class="chat-header">
+      <p>Group Chat</p>
+      <button class="close-btn">X</button>
+    </div>
+    <!-- chat header -->
+
+    <!-- chat content -->
+    <div class="chat-content">
+      <div>
+        <% chats.forEach((item) => { %>
+
+        <ul id="chat-content-ul" class="chat-content-ul">
+          <li>[<%= dateStr %> ] <%= item.name %>: <%= item.message %></li>
+        </ul>
+        <% }) %>
+      </div>
+    </div>
+    <!-- chat content end-->
+
+    <!-- chat input section-->
+    <div class="chat-input-section">
+      <form action="./chat" method="post" id="form" autocomplete="off">
+        <label id="loggedin-user" for="chat-input"><%= userName %></label>
+        <input type="hidden" value="<%= userName %> " name="name" />
+        <input
+          type="text"
+          class="chat-input"
+          name="message"
+          id="chat-input"
+          placeholder="type your text here..."
+        />
+        <button id="send-btn" type="submit">Send</button>
+        <button id="refresh-btn">Refresh</button>
+      </form>
+    </div>
+    <!-- chat input section end-->
+  </body>
+</html>

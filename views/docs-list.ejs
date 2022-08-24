@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Docs List</title>
+    <link rel="stylesheet" href="../css/docs-list.css" />
+    <link rel="stylesheet" href="../css/partials.css/tab.css" />
+    <link rel="stylesheet" href="../css/partials.css/docs-list-modal.css" />
+    <script src="../js/partials/docs-list-modal.js" defer></script>
+  </head>
+
+  <body>
+    <!-- tabs -->
+    <div class="tab">
+      <button class="btn">
+        <a href="/chat">Group Chat</a>
+      </button>
+      <button class="btn">
+        <a href="/user-list">Manage Users</a>
+      </button>
+      <button class="btn">
+        <a href="/docs-list">Manage Documents</a>
+      </button>
+      <form class="btn" action="/login/logout" method="get">
+        <button type="submit" id="logout-btn" class="btn-a">Logout</button>
+      </form>
+    </div>
+    <!-- tabs end -->
+
+    <h2>My Uploads</h2>
+    <!--my uploads table  -->
+    <div class="table">
+      <table id="table">
+        <!-- table header -->
+        <tr>
+          <th>Label</th>
+          <th>File Name</th>
+          <th>Action</th>
+        </tr>
+        <!-- table header end -->
+        <% if(loginUser[1]){ %>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <% } else if (loginUser[0]) { %> <% upload.forEach((item) => { %>
+        <tr>
+          <td><%= item.label %></td>
+          <td>
+            <a href="/docs-list/download/<%= item.filename %>" target="_blank"
+              ><%= item.filename %></a
+            >
+          </td>
+          <td>
+            <button class="edit" id="edit">
+              <a href="/file-edit/<%= item._id %>">Edit</a>
+            </button>
+            <button class="delete" id="del">
+              <a href="/docs-list-delete/<%= item._id %>">Delete</a>
+            </button>
+            |
+            <button class="share">
+              <a href="./share/<%= item._id %> ">Share</a>
+            </button>
+          </td>
+        </tr>
+        <% }) %> <% } %>
+      </table>
+    </div>
+    <!-- my uploads table end -->
+
+    <h2>Share Uploads</h2>
+
+    <!-- shared uploads table  -->
+    <div class="table">
+      <table id="share-table">
+        <!-- table header -->
+        <tr>
+          <th>Label</th>
+          <th>File Name</th>
+          <th>Shared by</th>
+        </tr>
+        <!-- table header -->
+        <% shared.forEach((item) => { %>
+        <tr>
+          <td><%= item.label %></td>
+          <td>
+            <a href="/docs-list/download/<%= item.filename %>" target="_blank"
+              ><%= item.filename %></a
+            >
+          </td>
+          <td><%= item.sharedBy %></td>
+        </tr>
+        <% }) %>
+
+        <!-- row1 -->
+        <tr>
+          <td>
+            <button id="add-upload-btn" class="add-upload">
+              <a href="#modal-overlay">+ Add Upload</a>
+            </button>
+          </td>
+          <td></td>
+          <td></td>
+        </tr>
+        <!-- row 5 end -->
+      </table>
+    </div>
+    <!-- shared uploads table end -->
+
+    <!-- upload modal -->
+    <form action="./docs-list" enctype="multipart/form-data" method="post">
+      <div id="hide-div-upload" class="hide-div-upload">
+        <div class="modal-overlay" id="modal-overlay">
+          <div class="modal-header">
+            <p>Upload</p>
+            <button type="button" id="upload-x-btn" class="close-btn">
+              <a href="#">X</a>
+            </button>
+          </div>
+
+          <div class="modal-content">
+            <label for="sample-file">File Description</label>
+            <input
+              type="text"
+              id="sample-file"
+              class="sample-file"
+              name="label"
+              placeholder="Please Add File Description"
+            />
+          </div>
+
+          <div class="choose-section">
+            <label for="choose-btn">File Upload</label>
+            <button class="choose-btn"></button>
+            <input type="file" id="theFile" name="filename" class="file" />
+          </div>
+          <div class="last-btn">
+            <button id="upload-now-btn" type="submit" class="upload-btn">
+              Upload Now
+            </button>
+            <button type="button" id="upload-cancel-btn">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <!-- <div class="uploadFile" style="visibility: hidden">
+      <form
+        action="./docs-list/fileUpload"
+        enctype="multipart/form-data"
+        method="post"
+      >
+        <input type="file" id="theFile" name="filename" class="file" />
+        <button id="submitUpload" type="submit">subbmit</button>
+      </form>
+    </div> -->
+
+    <!-- upload modal end -->
+  </body>
+</html>
